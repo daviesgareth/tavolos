@@ -26,7 +26,6 @@
 
 		  ga('create', 'UA-104907836-1', 'auto');
 		  ga('send', 'pageview');
-
 		</script>
 	</head>
 	
@@ -147,6 +146,15 @@
 	<script src="js/main.js"></script>
 	
 	<!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
+
+	<script>
+		// Push events to Analytics
+		jQuery(document).ready(function(){
+			$(".action-btn.trigger").on("click", function(e){
+				ga('send', 'event', 'Holding page', 'Click', 'More information');
+			});
+		});
+	</script>
 
 	</body>
 

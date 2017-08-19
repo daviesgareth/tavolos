@@ -1,12 +1,3 @@
-/*
-* PHLY - Versatile Coming Soon Template
-* Build Date: October 2015
-* Last Update: September 2016
-* Author: Madeon08
-* Copyright (C) 2016 Madeon08
-* This is a premium product available exclusively here : http://themeforest.net/user/Madeon08/portfolio
-*/
-
 /*  TABLE OF CONTENTS
     ---------------------------
     1. Loading / Opening
