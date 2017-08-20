@@ -36,20 +36,20 @@ if($_POST) {
 
     // To avoid the spammy bots, you can change the value of the minimum characters required. Here it's <20
     if(strlen($_POST["userMessage"])<20) {
-        $output = json_encode(array('type'=>'error', 'text' => '<i class="icon ion-close-round"></i> Too short message! Take your time and write a few words.'));
+        $output = json_encode(array('type'=>'error', 'text' => '<i class="icon ion-close-round"></i> Your message is too short, take your time and write a few words.'));
         die($output);
     }
    
     // Proceed with PHP email
     $headers = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
-    $headers .= 'From: My website' . "\r\n";
+    $headers .= 'From: Tavolos' . "\r\n";
     $headers .= 'Reply-To: '.$_POST["userEmail"]."\r\n";
     
     'X-Mailer: PHP/' . phpversion();
     
     // Body of the Email received in your Mailbox
-    $emailcontent = 'Hey! You have received a new message from the visitor <strong>'.$_POST["userName"].'</strong><br/><br/>'. "\r\n" .
+    $emailcontent = 'Hey! You have received a new Tavolos message from the visitor <strong>'.$_POST["userName"].'</strong><br/><br/>'. "\r\n" .
                 'His message: <br/> <em>'.$_POST["userMessage"].'</em><br/><br/>'. "\r\n" .
                 '<strong>Feel free to contact '.$_POST["userName"].' via email at : '.$_POST["userEmail"].'</strong>' . "\r\n" ;
     
