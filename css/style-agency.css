@@ -1,11 +1,3 @@
-/*
-* PHLY - Versatile Coming Soon Template
-* Build Date: October 2015
-* Last Update: January 2017
-* Author: Madeon08
-* Copyright (C) 2017 Madeon08
-* This is a premium product available exclusively here : https://themeforest.net/user/Madeon08/portfolio
-*/
 /*  TABLE OF CONTENTS
     ---------------------------
     *. @Import & Reset
@@ -510,6 +502,17 @@ sup {
   transform: skew(-25deg, 0deg);
 }
 
+/* ------------------------------------- */
+/* PARTICLES ........................... */
+/* ------------------------------------- */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 30%;
+  width: 70%;
+  height: 100%;
+}
+
 #stars {
   width: 1px;
   height: 1px;
@@ -606,7 +609,7 @@ sup {
   position: absolute;
   left: 10%;
   top: 5%;
-  max-width: 200px;
+  max-width: 140px;
 }
 
 #left-side {
@@ -699,6 +702,7 @@ sup {
   margin: 50px 0 60px;
 }
 #right-side .content p {
+  margin: 10px 0;
   color: #939da5;
 }
 #right-side .content .team-col .team-col-image {
@@ -1293,6 +1297,14 @@ sup {
   -webkit-animation-name: anim-close;
   -moz-animation-name: anim-close;
   animation-name: anim-close;
+}
+
+.tavolos-benefits {
+  margin: 20px 0;
+}
+
+.tavolos-benefits li p {
+  margin: 10px 0;
 }
 
 @-webkit-keyframes anim-open {

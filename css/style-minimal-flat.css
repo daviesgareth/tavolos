@@ -1428,6 +1428,75 @@ sup {
 /* ------------------------------------- */
 /* 6. Social Icons ..................... */
 /* ------------------------------------- */
+
+.useful-links {
+  position: absolute;
+  left: 10%;
+  bottom: 2%;
+  display: block;
+  z-index: 9;
+  width: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-transition: all 0.7s cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 0.7s cubic-bezier(0.42, 0, 0.58, 1);
+  -ms-transition: all 0.7s cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 0.7s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 0.7s cubic-bezier(0.42, 0, 0.58, 1);
+}
+.useful-links i {
+  color: #FFFFFF;
+  -webkit-transition: all 0.3s cubic-bezier(0, 0, 0.58, 1);
+  -moz-transition: all 0.3s cubic-bezier(0, 0, 0.58, 1);
+  -ms-transition: all 0.3s cubic-bezier(0, 0, 0.58, 1);
+  -o-transition: all 0.3s cubic-bezier(0, 0, 0.58, 1);
+  transition: all 0.3s cubic-bezier(0, 0, 0.58, 1);
+}
+.useful-links a {
+  color: white;
+  line-height: 50px;
+  letter-spacing: 0;
+  background: transparent;
+  font-size: 1em;
+  font-weight: 700;
+  display: inline-block;
+  text-align: center;
+  margin: 0 5px;
+  border: none;
+  -webkit-transition: all 0.3s cubic-bezier(0, 0, 0.58, 1);
+  -moz-transition: all 0.3s cubic-bezier(0, 0, 0.58, 1);
+  -ms-transition: all 0.3s cubic-bezier(0, 0, 0.58, 1);
+  -o-transition: all 0.3s cubic-bezier(0, 0, 0.58, 1);
+  transition: all 0.3s cubic-bezier(0, 0, 0.58, 1);
+}
+.useful-links a:hover {
+  color: #ff3366;
+  background: transparent;
+}
+.useful-links a:hover i {
+  color: #ff3366;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.useful-links a.info-link {
+  font-size: 0.7em;
+  margin: 0;
+}
+.useful-links .separator-link {
+  line-height: 50px;
+  width: 15px;
+}
+.useful-links .separator-link:after {
+  content: '.';
+  font-size: 25px;
+  color: #FFFFFF;
+  position: relative;
+  bottom: 2px;
+}
+
 .social-icons {
   position: absolute;
   left: 10%;
