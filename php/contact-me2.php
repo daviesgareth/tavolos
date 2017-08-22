@@ -1,7 +1,6 @@
 <?php
-if($_POST) {
 
-    $to_Email = "admin@tavolos.com"; // Write your email here
+if($_POST) {
    
     // Use PHP To Detect An Ajax Request
     if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
@@ -39,31 +38,46 @@ if($_POST) {
         $output = json_encode(array('type'=>'error', 'text' => '<i class="icon ion-close-round"></i> Your message is too short, take your time and write a few words.'));
         die($output);
     }
-   
-    // Proceed with PHP email
-    $headers = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
-    $headers .= 'From: gareth@tavolos.com' . "\r\n";
-    $headers .= 'Reply-To: '.$_POST["userEmail"] . "\r\n";
-    
-    'X-Mailer: PHP/' . phpversion();
-    
+
     // Body of the Email received in your Mailbox
     $emailcontent = 'Hey! You have received a new Tavolos message from the visitor <strong>'.$_POST["userName"].'</strong><br/><br/>'. "\r\n" .
                 'His message: <br/> <em>'.$_POST["userMessage"].'</em><br/><br/>'. "\r\n" .
                 '<strong>Feel free to contact '.$_POST["userName"].' via email at : '.$_POST["userEmail"].'</strong>' . "\r\n" ;
-    
-    $Mailsending = @mail($to_Email, $_POST["userSubject"], $emailcontent, $headers);
-   
-    if(!$Mailsending) {
-        
-        //If mail couldn't be sent output error. Check your PHP email configuration (if it ever happens)
-        $output = json_encode(array('type'=>'error', 'text' => '<i class="icon ion-close-round"></i> Oops! Looks like something went wrong, please check your PHP mail configuration.'));
-        die($output);
-        
-    } else {
-        $output = json_encode(array('type'=>'message', 'text' => '<i class="icon ion-checkmark-round"></i> Hello '.$_POST["userName"] .', Your message has been sent, we will get back to you asap !'));
-        die($output);
+
+    // Send email via Mandrill
+
+    require 'PHPMailer/PHPMailerAutoload.php';
+
+    $mail = new PHPMailer;
+
+    $mail->IsSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'smtp.mandrillapp.com';                 // Specify main and backup server
+    $mail->Port = 587;                                    // Set the SMTP port
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'Tavolos';                // SMTP username
+    $mail->Password = 'U64UPg3rlIMbLyLAei9mDQ';                  // SMTP password
+    $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+
+    $mail->From = 'admin@tavolos.com';
+    $mail->FromName = 'Tavolos - Landing Page';
+    $mail->AddAddress('gareth@tavolos.com', 'Gareth Davies');  // Add a recipient
+    $mail->AddAddress('pawel@tavolos.com', 'Pawel Michalski');               // Name is optional
+
+    $mail->IsHTML(true);                                  // Set email format to HTML
+
+    $mail->Subject = $_POST["userSubject"];
+    $mail->Body    = $emailcontent;
+    $mail->AltBody = $emailcontent;
+
+    if(!$mail->Send()) {
+       echo 'Message could not be sent.';
+       echo 'Mailer Error: ' . $mail->ErrorInfo;
+       exit;
     }
-}
+
+    echo 'Message has been sent';
+    
+
+
+} // End if post
 ?>
